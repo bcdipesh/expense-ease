@@ -20,12 +20,12 @@ export default async function NavBar() {
     jsxContent = (
       <>
         <li>
-          <Button variant="ghost">
+          <Button variant="ghost" asChild>
             <LoginLink>Sign in</LoginLink>
           </Button>
         </li>
         <li>
-          <Button>
+          <Button asChild>
             <RegisterLink>Start for free</RegisterLink>
           </Button>
         </li>
