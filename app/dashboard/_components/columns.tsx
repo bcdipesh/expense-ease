@@ -2,6 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
+import { toast } from "sonner";
 
 import { type Transaction } from "@/app/dashboard/_lib/types";
 import { deleteTransaction } from "@/app/dashboard/_actions/delete-transaction";
@@ -23,11 +24,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { toast } from "sonner";
 
 export const columns: ColumnDef<Transaction>[] = [
   {
-    accessorKey: "text",
+    accessorKey: "description",
     header: "Description",
   },
   {
@@ -55,8 +55,8 @@ export const columns: ColumnDef<Transaction>[] = [
       const onDelete = async (id: string) => {
         toast.promise(deleteTransaction(transaction.id), {
           loading: "Deleting transaction...",
-          success: "Transaction successfully deleted.",
-          error: "There was an error deleting transaction.",
+          success: "Transaction successfully deleted",
+          error: "There was an error deleting transaction",
         });
       };
 

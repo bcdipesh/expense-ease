@@ -12,7 +12,7 @@ import {
 } from "@tanstack/react-table";
 import { PlusIcon } from "@radix-ui/react-icons";
 
-import { Label } from "@/components/ui/label";
+import { AddTransactionForm } from "@/app/dashboard/_components/add-transaction-form";
 import {
   Sheet,
   SheetClose,
@@ -66,9 +66,11 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center justify-between space-x-2 py-4">
         <Input
           placeholder="Filter transactions..."
-          value={(table.getColumn("text")?.getFilterValue() as string) ?? ""}
+          value={
+            (table.getColumn("description")?.getFilterValue() as string) ?? ""
+          }
           onChange={(event) =>
-            table.getColumn("text")?.setFilterValue(event.target.value)
+            table.getColumn("description")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -81,35 +83,14 @@ export function DataTable<TData, TValue>({
           </Button>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Track Your Spending</SheetTitle>
-              <SheetDescription>
+              <SheetTitle className="text-left">Track Your Spending</SheetTitle>
+              <SheetDescription className="text-left">
                 Log your expenses to stay on top of your finances.
               </SheetDescription>
             </SheetHeader>
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="description">Description</Label>
-                <Input
-                  id="description"
-                  className="col-span-3"
-                  placeholder="Expense description"
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="amount">Amount</Label>
-                <Input
-                  id="amount"
-                  type="number"
-                  className="col-span-3"
-                  placeholder="-ve for expense, +ve for income"
-                />
-              </div>
+              <AddTransactionForm />
             </div>
-            <SheetFooter>
-              <SheetClose asChild>
-                <Button type="submit">Add Transaction</Button>
-              </SheetClose>
-            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>

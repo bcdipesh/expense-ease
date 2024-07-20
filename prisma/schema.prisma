@@ -26,13 +26,13 @@ model User {
 }
 
 model Transaction {
-  id        String   @id @default(uuid())
-  text      String
-  amount    Float
+  id          String   @id @default(uuid())
+  description String
+  amount      Float
   // Relation to user
-  userId    String
-  user      User     @relation(fields: [userId], references: [kindeUserId], onDelete: Cascade)
-  createdAt DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [kindeUserId], onDelete: Cascade)
+  createdAt   DateTime @default(now())
 
   @@index([userId])
 }
