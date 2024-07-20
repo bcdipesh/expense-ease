@@ -6,6 +6,7 @@ import {
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
 
+import { db } from "@/lib/db";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,25 @@ export default async function NavBar() {
   const isUserAuthenticated = await isAuthenticated();
   const user = await getUser();
   let jsxContent: React.JSX.Element;
+
+  if (user) {
+    const loggedInUser = await db.user.findUnique({
+      where: {
+        kindeUserId: user.id,
+      },
+    });
+
+    if (!loggedInUser) {
+      await db.user.create({
+        data: {
+          kindeUserId: user.id,
+          name: `${user?.given_name} ${user?.family_name}`,
+          imageUrl: user?.picture,
+          email: user?.email as string,
+        },
+      });
+    }
+  }
 
   if (!isUserAuthenticated) {
     jsxContent = (
