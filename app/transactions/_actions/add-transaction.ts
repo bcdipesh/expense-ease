@@ -18,7 +18,7 @@ export async function addTransaction(
   const user = await getUser();
 
   try {
-    await fetch(`${process.env.EXPENSE_TRACKER_API_URL}/transactions`, {
+    await fetch(`${process.env.EXPENSE_EASE_API_URL}/transactions`, {
       method: "POST",
       body: JSON.stringify({ ...values, userId: user?.id }),
       headers: {

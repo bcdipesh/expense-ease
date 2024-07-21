@@ -15,7 +15,7 @@ export async function updateTransaction(values: Transaction) {
   }
 
   try {
-    await fetch(`${process.env.EXPENSE_TRACKER_API_URL}/transactions`, {
+    await fetch(`${process.env.EXPENSE_EASE_API_URL}/transactions`, {
       method: "PUT",
       body: JSON.stringify(values),
       headers: {

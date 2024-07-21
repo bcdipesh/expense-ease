@@ -16,7 +16,7 @@ export async function getTransactionById(id: string) {
 
   try {
     const resp = await fetch(
-      `${process.env.EXPENSE_TRACKER_API_URL}/transactions/${id}`,
+      `${process.env.EXPENSE_EASE_API_URL}/transactions/${id}`,
     );
     const transaction = (await resp.json()) as Transaction;
 

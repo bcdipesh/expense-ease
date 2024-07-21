@@ -15,7 +15,7 @@ export default async function TransactionPage() {
   }
 
   const resp = await fetch(
-    `${process.env.EXPENSE_TRACKER_API_URL}/transactions/users/${user?.id}`,
+    `${process.env.EXPENSE_EASE_API_URL}/transactions/users/${user?.id}`,
   );
   const transactions = (await resp.json()) as Transaction[];
 
