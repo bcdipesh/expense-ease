@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="container flex min-h-screen flex-col justify-between">
+        <div className="container flex min-h-screen flex-col">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -30,11 +30,11 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <NavBar />
-            {children}
-            <Toaster />
+            <main className="mt-20">{children}</main>
             <Footer />
           </ThemeProvider>
         </div>
+        <Toaster />
       </body>
     </html>
   );

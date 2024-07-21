@@ -14,30 +14,28 @@ export default async function HomePage() {
   }
 
   return (
-    <main>
-      <div className="flex justify-between space-x-6">
-        <div>
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Effortless Expense Tracking
-          </h1>
+    <div className="flex justify-between space-x-6">
+      <div>
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          Effortless Expense Tracking
+        </h1>
 
-          <p className="leading-7 [&:not(:first-child)]:mt-6">
-            Track your income and expenses effortlessly with our user-friendly
-            expense tracker
-          </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Track your income and expenses effortlessly with our user-friendly
+          expense tracker
+        </p>
 
-          <Button className="mt-4" asChild>
-            <RegisterLink>Get Started Today</RegisterLink>
-          </Button>
-        </div>
-
-        <Image
-          src="/statistic-chart.svg"
-          width={400}
-          height={400}
-          alt="Statistic Chart"
-        />
+        <Button className="mt-4" asChild>
+          <RegisterLink>Get Started Today</RegisterLink>
+        </Button>
       </div>
-    </main>
+
+      <Image
+        src="/statistic-chart.svg"
+        width={400}
+        height={400}
+        alt="Statistic Chart"
+      />
+    </div>
   );
 }

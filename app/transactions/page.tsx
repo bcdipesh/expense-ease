@@ -20,8 +20,14 @@ export default async function TransactionPage() {
   const transactions = (await resp.json()) as Transaction[];
 
   return (
-    <div>
+    <>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Your Transaction History
+      </h1>
+      <p className="mb-10 leading-7 text-muted-foreground [&:not(:first-child)]:mt-6">
+        Track your income/expense with a complete view of your transactions.
+      </p>
       <DataTable columns={columns} data={transactions} />
-    </div>
+    </>
   );
 }

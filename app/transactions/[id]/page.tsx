@@ -20,5 +20,15 @@ export default async function TransactionDetailPage({
 
   const transaction = (await getTransactionById(id)) as Transaction;
 
-  return <UpdateTransactionForm transaction={transaction} />;
+  return (
+    <>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Update Transaction Details
+      </h1>
+      <p className="mb-10 leading-7 text-muted-foreground [&:not(:first-child)]:mt-6">
+        Update the details of your income/expense for accurate tracking.
+      </p>
+      <UpdateTransactionForm transaction={transaction} />
+    </>
+  );
 }

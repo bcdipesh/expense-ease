@@ -60,7 +60,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div>
+    <div className="flex min-h-[500px] flex-col">
       <div className="flex items-center justify-between space-x-2 py-4">
         <Input
           placeholder="Filter transactions..."
@@ -83,7 +83,7 @@ export function DataTable<TData, TValue>({
             <SheetHeader>
               <SheetTitle className="text-left">Track Your Spending</SheetTitle>
               <SheetDescription className="text-left">
-                Log your expenses to stay on top of your finances.
+                Log your income/expense to stay on top of your finances.
               </SheetDescription>
             </SheetHeader>
             <div className="grid gap-4 py-4">
@@ -93,7 +93,7 @@ export function DataTable<TData, TValue>({
         </Sheet>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table className="table-fixed">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -142,7 +142,7 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="mt-auto flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"
           size="sm"
