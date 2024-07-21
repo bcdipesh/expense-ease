@@ -10,7 +10,7 @@ export default async function HomePage() {
   const isUserAuthenticated = await isAuthenticated();
 
   if (isUserAuthenticated) {
-    redirect("/dashboard");
+    redirect("/transactions");
   }
 
   return (

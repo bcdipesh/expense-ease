@@ -12,13 +12,11 @@ import {
 } from "@tanstack/react-table";
 import { PlusIcon } from "@radix-ui/react-icons";
 
-import { AddTransactionForm } from "@/app/dashboard/_components/add-transaction-form";
+import { AddTransactionForm } from "@/app/transactions/_components/add-transaction-form";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,

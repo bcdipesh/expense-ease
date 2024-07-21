@@ -7,5 +7,5 @@ export async function deleteTransaction(id: string) {
     method: "DELETE",
   });
 
-  revalidatePath("/dashboard");
+  revalidatePath("/transactions");
 }

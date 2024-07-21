@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { addTransaction } from "../_actions/add-transaction";
+import { addTransaction } from "@/app/transactions/_actions/add-transaction";
 
 const formSchema = z.object({
   description: z.string({

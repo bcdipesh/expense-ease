@@ -1,11 +1,11 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
-import { type Transaction } from "@/app/dashboard/_lib/types";
-import { columns } from "@/app/dashboard/_components/columns";
-import { DataTable } from "@/app/dashboard/_components/data-table";
+import { type Transaction } from "@/app/transactions/_lib/types";
+import { columns } from "@/app/transactions/_components/columns";
+import { DataTable } from "@/app/transactions/_components/data-table";
 
-export default async function DashboardPage() {
+export default async function TransactionPage() {
   const { isAuthenticated, getUser } = getKindeServerSession();
   const isUserAuthenticated = await isAuthenticated();
   const user = await getUser();

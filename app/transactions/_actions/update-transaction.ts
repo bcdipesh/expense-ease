@@ -2,10 +2,10 @@
 
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-import { type Transaction } from "@/app/dashboard/_lib/types";
+import { type Transaction } from "@/app/transactions/_lib/types";
 import { revalidatePath } from "next/cache";
 
-export async function addTransaction(
+export async function updateTransaction(
   values: Omit<Transaction, "id" | "createdAt" | "userId">,
 ) {
   const { isAuthenticated, getUser } = getKindeServerSession();
@@ -21,7 +21,7 @@ export async function addTransaction(
     const resp = await fetch(
       `${process.env.EXPENSE_TRACKER_API_URL}/transactions`,
       {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify({ ...values, userId: user?.id }),
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export async function addTransaction(
 
     console.log(transaction);
 
-    revalidatePath("/dashboard");
+    revalidatePath("/transactions");
   } catch (error) {
     console.error(error);
   }

@@ -3,9 +3,10 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
+import Link from "next/link";
 
-import { type Transaction } from "@/app/dashboard/_lib/types";
-import { deleteTransaction } from "@/app/dashboard/_actions/delete-transaction";
+import { type Transaction } from "@/app/transactions/_lib/types";
+import { deleteTransaction } from "@/app/transactions/_actions/delete-transaction";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -71,7 +72,9 @@ export const columns: ColumnDef<Transaction>[] = [
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>View/Update transaction</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/">Update transaction</Link>
+              </DropdownMenuItem>
               <DialogTrigger asChild>
                 <DropdownMenuItem className="cursor-pointer">
                   Delete transaction
