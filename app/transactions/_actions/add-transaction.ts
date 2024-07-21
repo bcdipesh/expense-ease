@@ -18,22 +18,16 @@ export async function addTransaction(
   const user = await getUser();
 
   try {
-    const resp = await fetch(
-      `${process.env.EXPENSE_TRACKER_API_URL}/transactions`,
-      {
-        method: "POST",
-        body: JSON.stringify({ ...values, userId: user?.id }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+    await fetch(`${process.env.EXPENSE_TRACKER_API_URL}/transactions`, {
+      method: "POST",
+      body: JSON.stringify({ ...values, userId: user?.id }),
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
-    const transaction = await resp.json();
-
-    console.log(transaction);
-
-    revalidatePath("/transactions");
+    });
   } catch (error) {
     console.error(error);
   }
+
+  revalidatePath("/transactions");
 }

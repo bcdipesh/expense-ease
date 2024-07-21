@@ -53,8 +53,8 @@ export const columns: ColumnDef<Transaction>[] = [
     cell: ({ row }) => {
       const transaction = row.original;
 
-      const onDelete = async (id: string) => {
-        toast.promise(deleteTransaction(transaction.id), {
+      const onDelete = (id: string) => {
+        toast.promise(deleteTransaction(id), {
           loading: "Deleting transaction...",
           success: "Transaction successfully deleted",
           error: "There was an error deleting transaction",
@@ -73,7 +73,9 @@ export const columns: ColumnDef<Transaction>[] = [
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem>
-                <Link href="/">Update transaction</Link>
+                <Link href={`/transactions/${transaction.id}`}>
+                  Update transaction
+                </Link>
               </DropdownMenuItem>
               <DialogTrigger asChild>
                 <DropdownMenuItem className="cursor-pointer">

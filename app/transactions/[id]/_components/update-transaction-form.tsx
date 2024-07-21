@@ -27,10 +27,13 @@ const formSchema = z.object({
   amount: z.coerce.number(),
 });
 
-export async function UpdateTransactionForm(transaction: {
-  description: any;
-  amount: any;
-}) {
+interface UpdateTransactionFormProps {
+  transaction: Transaction;
+}
+
+export function UpdateTransactionForm({
+  transaction,
+}: UpdateTransactionFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,12 +42,20 @@ export async function UpdateTransactionForm(transaction: {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    toast.promise(updateTransaction(values), {
-      loading: "Adding transaction...",
-      success: "Transaction added successfully",
-      error: "There was an error adding transaction",
-    });
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    toast.promise(
+      updateTransaction({
+        ...values,
+        id: transaction.id,
+        userId: transaction.userId,
+        createdAt: transaction.createdAt,
+      }),
+      {
+        loading: "Updating transaction...",
+        success: "Transaction updated successfully",
+        error: "There was an error updating transaction",
+      },
+    );
   };
 
   return (
