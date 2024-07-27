@@ -1,10 +1,15 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
+import { type Metadata } from "next";
 
 import { type Transaction } from "@/app/transactions/_lib/types";
 import { columns } from "@/app/transactions/_components/columns";
 import { DataTable } from "@/app/transactions/_components/data-table";
 import { TransactionsOverview } from "@/app/transactions/_components/transactions-overview";
+
+export const metadata: Metadata = {
+  title: "Transactions",
+};
 
 export default async function TransactionPage() {
   const { isAuthenticated, getUser } = getKindeServerSession();
