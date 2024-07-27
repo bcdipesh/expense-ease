@@ -39,12 +39,12 @@ export default async function NavBar() {
   if (!isUserAuthenticated) {
     jsxContent = (
       <>
-        <li>
+        <li className="order-1">
           <Button variant="ghost" asChild>
             <LoginLink>Sign in</LoginLink>
           </Button>
         </li>
-        <li>
+        <li className="md:order-2">
           <Button asChild>
             <RegisterLink>Start for free</RegisterLink>
           </Button>
@@ -55,7 +55,7 @@ export default async function NavBar() {
     jsxContent = (
       <>
         <li>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-4">
             <Avatar>
               <AvatarImage src={user?.picture as string} />
               <AvatarFallback>{`${user?.given_name} ${user?.family_name} picture`}</AvatarFallback>
@@ -74,16 +74,16 @@ export default async function NavBar() {
 
   return (
     <nav>
-      <ul className="flex items-center justify-between py-10">
+      <ul className="flex flex-wrap items-center justify-between gap-4 py-10">
         <li>
           <Link href="/" className="text-xl font-bold">
             Expense Tracker
           </Link>
         </li>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-4">
           {jsxContent}
-          <li>
+          <li className="order-3">
             <ThemeToggle />
           </li>
         </div>

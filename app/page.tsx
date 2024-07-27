@@ -14,7 +14,7 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="flex justify-between space-x-6">
+    <div className="flex flex-col justify-between gap-6 md:flex-row">
       <div>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Effortless Expense Tracking

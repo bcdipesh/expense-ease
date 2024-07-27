@@ -22,7 +22,7 @@ export default async function TransactionPage() {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex flex-col justify-between md:flex-row">
         <div>
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
             Your Transaction History

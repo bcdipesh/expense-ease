@@ -27,7 +27,7 @@ export function TransactionsOverview({
   const netBalance = totalIncome + totalExpense;
 
   return (
-    <div className="flex space-x-4">
+    <div className="flex flex-col gap-4 md:flex-row">
       <Card className="transition-colors hover:bg-secondary">
         <CardHeader>
           <CardTitle>Total Income</CardTitle>
