@@ -18,14 +18,14 @@ export default async function NavBar() {
   let jsxContent: React.JSX.Element;
 
   if (user) {
-    const loggedInUser = await db.user.findUnique({
+    const loggedInUser = await db.users.findUnique({
       where: {
         kindeUserId: user.id,
       },
     });
 
     if (!loggedInUser) {
-      await db.user.create({
+      await db.users.create({
         data: {
           kindeUserId: user.id,
           name: `${user?.given_name} ${user?.family_name}`,
